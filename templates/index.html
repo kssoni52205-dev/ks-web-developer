@@ -1,19 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Krishna Soni | Web Developer</title>
-
-    <meta name="description"
-          content="Krishna Soni - Web Developer creating modern business websites and custom web applications.">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
-          rel="stylesheet">
 
     <style>
 
@@ -28,62 +20,26 @@
         }
 
         body {
-            font-family: "DM Sans", sans-serif;
+            font-family: Arial, sans-serif;
             background: #f8f6f1;
             color: #181818;
-            overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
+        .container {
+            width: min(1100px, 90%);
+            margin: auto;
         }
 
-        body::before {
-            content: "";
-            position: fixed;
-            width: 500px;
-            height: 500px;
-            top: -180px;
-            left: -180px;
-            background: rgba(210, 178, 112, 0.16);
-            filter: blur(100px);
-            border-radius: 50%;
-            z-index: -1;
-        }
-
-        body::after {
-            content: "";
-            position: fixed;
-            width: 500px;
-            height: 500px;
-            right: -200px;
-            bottom: -200px;
-            background: rgba(125, 94, 55, 0.10);
-            filter: blur(110px);
-            border-radius: 50%;
-            z-index: -1;
-        }
+        /* NAVBAR */
 
         nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-
-            background: rgba(248, 246, 241, 0.80);
-            backdrop-filter: blur(18px);
-
-            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            padding: 22px 0;
+            background: rgba(248, 246, 241, 0.9);
+            border-bottom: 1px solid #e8e3da;
         }
 
         .nav-inner {
-            max-width: 1180px;
-            height: 80px;
-            margin: auto;
-            padding: 0 25px;
-
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -95,7 +51,7 @@
             gap: 12px;
         }
 
-        .brand-mark {
+        .logo {
             width: 45px;
             height: 45px;
 
@@ -103,879 +59,611 @@
             align-items: center;
             justify-content: center;
 
+            background: #181818;
+            color: #d4a85f;
+
             border-radius: 13px;
 
-            background: #181818;
-            color: #d7ad63;
-
-            font-family: "Playfair Display", serif;
-            font-size: 20px;
-            font-weight: 700;
+            font-weight: bold;
         }
 
         .brand-text strong {
             display: block;
-            font-size: 14px;
-            letter-spacing: 2px;
+            font-size: 15px;
         }
 
         .brand-text span {
-            font-size: 9px;
-            letter-spacing: 3px;
             color: #777;
+            font-size: 11px;
         }
 
         .nav-links {
             display: flex;
-            gap: 28px;
-            align-items: center;
+            gap: 25px;
         }
 
         .nav-links a {
-            font-size: 14px;
+            text-decoration: none;
             color: #555;
-            transition: 0.3s;
+            font-size: 13px;
         }
 
         .nav-links a:hover {
             color: #a67b39;
         }
 
-        .contact-btn {
-            background: #181818;
-            color: white !important;
-            padding: 11px 19px;
-            border-radius: 30px;
-        }
-
-        .contact-btn:hover {
-            background: #a67b39;
-        }
+        /* HERO */
 
         .hero {
-            max-width: 1180px;
-            min-height: 100vh;
-            margin: auto;
-            padding: 145px 25px 80px;
-
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            align-items: center;
-            gap: 60px;
+            padding: 110px 0 100px;
+            text-align: center;
         }
 
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+        .hero-badge {
+            display: inline-block;
 
-            padding: 8px 14px;
-            border: 1px solid rgba(166, 123, 57, 0.25);
-            background: rgba(255,255,255,0.55);
+            padding: 7px 14px;
+
             border-radius: 30px;
 
+            background: #eee9df;
+
+            color: #8b6834;
+
             font-size: 12px;
-            color: #80602e;
-            margin-bottom: 25px;
+
+            margin-bottom: 22px;
         }
 
-        .dot {
-            width: 7px;
-            height: 7px;
-            background: #8caa62;
-            border-radius: 50%;
-        }
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 76px);
 
-        h1 {
-            font-family: "Playfair Display", serif;
-            font-size: clamp(52px, 7vw, 88px);
-            line-height: 0.98;
+            line-height: 1.05;
+
             letter-spacing: -3px;
-            font-weight: 600;
-            margin-bottom: 25px;
         }
 
-        h1 span {
+        .hero h1 span {
             color: #a67b39;
         }
 
-        .hero-text {
-            max-width: 570px;
+        .hero p {
+            max-width: 650px;
+
+            margin: 25px auto;
+
             color: #666;
-            font-size: 17px;
-            line-height: 1.8;
-            margin-bottom: 35px;
+
+            font-size: 16px;
         }
 
         .buttons {
             display: flex;
+
+            justify-content: center;
+
             gap: 12px;
-            flex-wrap: wrap;
+
+            margin-top: 30px;
         }
 
         .btn {
-            padding: 14px 22px;
-            border-radius: 12px;
-            font-size: 14px;
-            font-weight: 600;
-            transition: 0.3s;
+            display: inline-block;
+
+            padding: 13px 21px;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: bold;
         }
 
-        .btn-dark {
+        .btn-primary {
             background: #181818;
             color: white;
         }
 
-        .btn-dark:hover {
+        .btn-primary:hover {
             background: #a67b39;
-            transform: translateY(-3px);
         }
 
-        .btn-light {
-            border: 1px solid rgba(0,0,0,0.12);
-            background: rgba(255,255,255,0.55);
+        .btn-secondary {
+            border: 1px solid #d8d1c5;
+            color: #333;
         }
 
-        .btn-light:hover {
-            transform: translateY(-3px);
+        .btn-secondary:hover {
             border-color: #a67b39;
+            color: #a67b39;
         }
 
-        .logo-card {
-            min-height: 430px;
-            border-radius: 30px;
-            background: #181818;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            box-shadow: 0 30px 80px rgba(0,0,0,0.15);
-        }
-
-        .logo-content {
-            text-align: center;
-        }
-
-        .ks {
-            font-family: "Playfair Display", serif;
-            font-size: 145px;
-            line-height: 0.8;
-            letter-spacing: -22px;
-            color: #e4e1da;
-            margin-right: 20px;
-        }
-
-        .ks span {
-            color: #d4a85f;
-        }
-
-        .gold-line {
-            width: 130px;
-            height: 1px;
-            background: #d4a85f;
-            margin: 35px auto 20px;
-        }
-
-        .logo-content h2 {
-            color: white;
-            font-size: 15px;
-            letter-spacing: 7px;
-            font-weight: 500;
-        }
-
-        .logo-content p {
-            color: #999;
-            font-size: 9px;
-            letter-spacing: 4px;
-            margin-top: 10px;
-        }
+        /* SECTION */
 
         section {
-            max-width: 1180px;
-            margin: auto;
-            padding: 110px 25px;
+            padding: 80px 0;
         }
 
-        .eyebrow {
+        .section-heading {
+            text-align: center;
+
+            margin-bottom: 45px;
+        }
+
+        .section-heading span {
             color: #a67b39;
-            text-transform: uppercase;
+
             font-size: 11px;
-            letter-spacing: 4px;
-            font-weight: 700;
-            margin-bottom: 13px;
-        }
 
-        .section-title {
-            font-family: "Playfair Display", serif;
-            font-size: clamp(38px, 5vw, 58px);
-            line-height: 1.05;
-        }
-
-        .section-description {
-            color: #707070;
-            line-height: 1.8;
-            margin-top: 18px;
-            max-width: 650px;
-        }
-
-        .services {
-            margin-top: 50px;
-
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-        }
-
-        .card {
-            min-height: 260px;
-            padding: 28px;
-
-            background: rgba(255,255,255,0.65);
-            border: 1px solid rgba(0,0,0,0.06);
-            border-radius: 22px;
-
-            transition: 0.35s;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            background: white;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
-        }
-
-        .number {
-            color: #b08a4b;
-            font-size: 12px;
             letter-spacing: 2px;
         }
 
-        .icon {
-            font-size: 29px;
-            margin: 35px 0 22px;
-        }
+        .section-heading h2 {
+            font-size: 36px;
 
-        .card h3 {
-            font-family: "Playfair Display", serif;
-            font-size: 21px;
-            margin-bottom: 12px;
-        }
-
-        .card p {
-            color: #777;
-            font-size: 13px;
-            line-height: 1.7;
-        }
-
-        .why {
-            display: grid;
-            grid-template-columns: 0.8fr 1.2fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .why-list {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-
-        .why-card {
-            padding: 25px;
-            background: rgba(255,255,255,0.60);
-            border: 1px solid rgba(0,0,0,0.06);
-            border-radius: 18px;
-        }
-
-        .why-card strong {
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .why-card p {
-            color: #777;
-            font-size: 13px;
-            line-height: 1.6;
-        }
-
-        .process {
-            max-width: 100%;
-            background: #181818;
-            color: white;
-            border-radius: 35px;
-        }
-
-        .process-inner {
-            max-width: 1180px;
-            margin: auto;
-            padding: 110px 25px;
-        }
-
-        .process .section-description {
-            color: #999;
-        }
-
-        .process-grid {
-            margin-top: 50px;
-
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-
-            background: rgba(255,255,255,0.10);
-        }
-
-        .process-card {
-            padding: 35px 25px;
-            background: #181818;
-        }
-
-        .process-card span {
-            color: #d4a85f;
-            font-size: 12px;
-            letter-spacing: 2px;
-        }
-
-        .process-card h3 {
-            margin: 35px 0 12px;
-            font-family: "Playfair Display", serif;
-            font-size: 23px;
-        }
-
-        .process-card p {
-            color: #999;
-            font-size: 13px;
-            line-height: 1.7;
-        }
-
-        footer {
-            max-width: 1180px;
-            margin: auto;
-            padding: 70px 25px 35px;
-        }
-
-        .footer-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            padding-bottom: 45px;
-            border-bottom: 1px solid rgba(0,0,0,0.08);
-        }
-
-        .footer-title {
-            font-family: "Playfair Display", serif;
-            font-size: 35px;
-        }
-
-        .footer-description {
-            color: #777;
-            font-size: 13px;
             margin-top: 8px;
         }
 
-        .instagram {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
+        .section-heading p {
+            color: #777;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-size: 14px;
 
-            background: #181818;
-            color: white;
+            margin-top: 8px;
+        }
+
+        /* SERVICES */
+
+        .services {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 18px;
+        }
+
+        .service-card {
+            background: white;
+
+            border: 1px solid #e5dfd5;
+
+            border-radius: 18px;
+
+            padding: 28px;
+
+            transition: 0.25s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+        }
+
+        .service-icon {
+            font-size: 25px;
+
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-size: 18px;
+
+            margin-bottom: 8px;
+        }
+
+        .service-card p {
+            color: #777;
 
             font-size: 13px;
-            transition: 0.3s;
         }
 
-        .instagram:hover {
-            background: #a67b39;
-            transform: translateY(-4px);
+        /* TESTIMONIALS */
+
+        .testimonials {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 18px;
         }
 
-        .footer-bottom {
-            padding-top: 25px;
-            display: flex;
-            justify-content: space-between;
-            color: #999;
-            font-size: 11px;
+        .testimonial {
+            background: white;
+
+            border: 1px solid #e5dfd5;
+
+            border-radius: 18px;
+
+            padding: 25px;
         }
 
-        @media (max-width: 900px) {
+        .testimonial p {
+            color: #666;
 
-            .nav-links a:not(.contact-btn) {
+            font-size: 14px;
+
+            margin-bottom: 15px;
+        }
+
+        .testimonial strong {
+            font-size: 13px;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            text-align: center;
+
+            background: #181818;
+
+            color: white;
+
+            border-radius: 25px;
+
+            padding: 65px 25px;
+        }
+
+        .contact h2 {
+            font-size: 36px;
+
+            margin-bottom: 10px;
+        }
+
+        .contact p {
+            color: #aaa;
+
+            margin-bottom: 25px;
+        }
+
+        .instagram {
+            color: #d4a85f;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 30px 0;
+
+            text-align: center;
+
+            color: #888;
+
+            font-size: 12px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            .nav-links {
                 display: none;
             }
 
             .hero {
-                grid-template-columns: 1fr;
+                padding: 80px 0;
             }
 
-            .services {
-                grid-template-columns: repeat(2, 1fr);
+            .hero h1 {
+                letter-spacing: -2px;
             }
 
-            .why {
-                grid-template-columns: 1fr;
-                gap: 45px;
+            .buttons {
+                flex-direction: column;
+
+                align-items: center;
             }
 
-            .process-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
-
-            .hero {
-                padding-top: 120px;
-            }
-
-            h1 {
-                font-size: 55px;
-            }
-
-            .hero-text {
-                font-size: 15px;
-            }
-
-            .logo-card {
-                min-height: 320px;
-            }
-
-            .ks {
-                font-size: 100px;
-            }
-
-            section {
-                padding: 80px 20px;
+            .btn {
+                width: 210px;
             }
 
             .services,
-            .why-list,
-            .process-grid {
+            .testimonials {
                 grid-template-columns: 1fr;
             }
 
-            .process-inner {
-                padding: 80px 20px;
+            section {
+                padding: 60px 0;
             }
 
-            .footer-top {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 30px;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                gap: 10px;
-            }
         }
 
     </style>
+
 </head>
+
 
 <body>
 
-    <nav>
-        <div class="nav-inner">
 
-            <a href="/" class="brand">
+<!-- NAVBAR -->
 
-                <div class="brand-mark">
-                    KS
-                </div>
+<nav>
 
-                <div class="brand-text">
-                    <strong>KRISHNA</strong>
-                    <span>WEB DEVELOPER</span>
-                </div>
+    <div class="container nav-inner">
 
-            </a>
+        <div class="brand">
 
-            <div class="nav-links">
+            <div class="logo">
+                KS
+            </div>
 
-                <a href="#services">Services</a>
-                <a href="#why">Why Me</a>
-                <a href="#process">Process</a>
+            <div class="brand-text">
 
-                <a
-                    href="https://wa.me/918949144970"
-                    target="_blank"
-                    class="contact-btn"
-                >
-                    Let's Talk
-                </a>
+                <strong>
+                    Krishna Soni
+                </strong>
+
+                <span>
+                    Web Developer
+                </span>
 
             </div>
 
         </div>
-    </nav>
 
 
-    <main>
+        <div class="nav-links">
 
-        <section class="hero">
+            <a href="#services">
+                Services
+            </a>
 
-            <div>
+            <a href="#testimonials">
+                Testimonials
+            </a>
 
-                <div class="badge">
-                    <span class="dot"></span>
-                    Available for New Projects
-                </div>
+            <a href="#contact">
+                Contact
+            </a>
 
-                <h1>
-                    Hi, I'm
-                    <span>Krishna.</span>
-                    <br>
-                    I build for the web.
-                </h1>
+        </div>
 
-                <p class="hero-text">
-                    I'm Krishna Soni, a web developer focused on creating
-                    modern, responsive and professional digital experiences
-                    for businesses and individuals.
-                </p>
+    </div>
 
-                <div class="buttons">
+</nav>
 
-                    <a
-                        href="https://wa.me/918949144970"
-                        target="_blank"
-                        class="btn btn-dark"
-                    >
-                        Start a Conversation →
-                    </a>
 
-                    <a
-                        href="#services"
-                        class="btn btn-light"
-                    >
-                        Explore Services
-                    </a>
 
-                </div>
+<!-- HERO -->
 
-            </div>
+<section class="hero">
 
+    <div class="container">
 
-            <div class="logo-card">
+        <div class="hero-badge">
+            Available for new projects
+        </div>
 
-                <div class="logo-content">
 
-                    <div class="ks">
-                        K<span>S</span>
-                    </div>
+        <h1>
+            I build <span>websites</span><br>
+            that grow businesses.
+        </h1>
 
-                    <div class="gold-line"></div>
 
-                    <h2>WEB DEVELOPER</h2>
+        <p>
+            I'm Krishna Soni, a web developer creating clean,
+            responsive and professional digital experiences
+            for businesses and individuals.
+        </p>
 
-                    <p>DESIGN • DEVELOP • DELIVER</p>
 
-                </div>
+        <div class="buttons">
 
-            </div>
-
-        </section>
-
-
-        <section id="services">
-
-            <div class="eyebrow">
-                What I Do
-            </div>
-
-            <h2 class="section-title">
-                Digital solutions
-                built around your needs.
-            </h2>
-
-            <p class="section-description">
-                From business websites to custom web applications,
-                I focus on clean design, responsive experiences
-                and practical solutions.
-            </p>
-
-
-            <div class="services">
-
-                <div class="card">
-
-                    <div class="number">01</div>
-
-                    <div class="icon">🌐</div>
-
-                    <h3>Business Websites</h3>
-
-                    <p>
-                        Professional websites designed to give your
-                        business a strong and trustworthy online presence.
-                    </p>
-
-                </div>
-
-
-                <div class="card">
-
-                    <div class="number">02</div>
-
-                    <div class="icon">⚙️</div>
-
-                    <h3>Custom Web Applications</h3>
-
-                    <p>
-                        Custom-built web applications designed around
-                        your specific business requirements.
-                    </p>
-
-                </div>
-
-
-                <div class="card">
-
-                    <div class="number">03</div>
-
-                    <div class="icon">📱</div>
-
-                    <h3>Responsive Websites</h3>
-
-                    <p>
-                        Websites that work smoothly across mobile phones,
-                        tablets and desktops.
-                    </p>
-
-                </div>
-
-
-                <div class="card">
-
-                    <div class="number">04</div>
-
-                    <div class="icon">🔧</div>
-
-                    <h3>Maintenance & Updates</h3>
-
-                    <p>
-                        Ongoing improvements, updates and technical support
-                        to keep your website running smoothly.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <section id="why">
-
-            <div class="why">
-
-                <div>
-
-                    <div class="eyebrow">
-                        Why Work With Me
-                    </div>
-
-                    <h2 class="section-title">
-                        Simple process.
-                        Clean work.
-                        Real results.
-                    </h2>
-
-                    <p class="section-description">
-                        A good website should not only look professional,
-                        but also be fast, easy to use and useful for the
-                        people visiting it.
-                    </p>
-
-                </div>
-
-
-                <div class="why-list">
-
-                    <div class="why-card">
-
-                        <strong>Clean & Modern Design</strong>
-
-                        <p>
-                            Minimal, professional interfaces that
-                            represent your brand properly.
-                        </p>
-
-                    </div>
-
-
-                    <div class="why-card">
-
-                        <strong>Mobile Responsive</strong>
-
-                        <p>
-                            Your website will work smoothly on phones,
-                            tablets and computers.
-                        </p>
-
-                    </div>
-
-
-                    <div class="why-card">
-
-                        <strong>Custom Solutions</strong>
-
-                        <p>
-                            Solutions created according to your
-                            specific requirements.
-                        </p>
-
-                    </div>
-
-
-                    <div class="why-card">
-
-                        <strong>Direct Communication</strong>
-
-                        <p>
-                            Clear communication throughout the
-                            development process.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <section id="process" class="process">
-
-            <div class="process-inner">
-
-                <div class="eyebrow">
-                    My Process
-                </div>
-
-                <h2 class="section-title">
-                    From idea to launch.
-                </h2>
-
-                <p class="section-description">
-                    A simple and transparent process that keeps
-                    everything clear from the beginning.
-                </p>
-
-
-                <div class="process-grid">
-
-                    <div class="process-card">
-
-                        <span>01</span>
-
-                        <h3>Discuss</h3>
-
-                        <p>
-                            We understand your idea, requirements
-                            and goals.
-                        </p>
-
-                    </div>
-
-
-                    <div class="process-card">
-
-                        <span>02</span>
-
-                        <h3>Design</h3>
-
-                        <p>
-                            The structure and visual direction of
-                            your website are planned.
-                        </p>
-
-                    </div>
-
-
-                    <div class="process-card">
-
-                        <span>03</span>
-
-                        <h3>Develop</h3>
-
-                        <p>
-                            Your website or web application is
-                            developed and tested.
-                        </p>
-
-                    </div>
-
-
-                    <div class="process-card">
-
-                        <span>04</span>
-
-                        <h3>Launch</h3>
-
-                        <p>
-                            After final checks, your website is
-                            ready to go live.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <footer>
-
-        <div class="footer-top">
-
-            <div>
-
-                <h2 class="footer-title">
-                    Krishna Soni
-                </h2>
-
-                <p class="footer-description">
-                    Web Developer · Building for the web.
-                </p>
-
-            </div>
+            <a
+                href="#contact"
+                class="btn btn-primary"
+            >
+                Let's Work Together
+            </a>
 
 
             <a
-                href="https://instagram.com/whyalways.krishnaaaa"
-                target="_blank"
-                class="instagram"
+                href="#services"
+                class="btn btn-secondary"
             >
-                IG
+                View Services
             </a>
 
         </div>
 
+    </div>
 
-        <div class="footer-bottom">
+</section>
+
+
+
+<!-- SERVICES -->
+
+<section id="services">
+
+    <div class="container">
+
+
+        <div class="section-heading">
 
             <span>
-                © 2026 Krishna Soni. All rights reserved.
+                WHAT I DO
             </span>
 
-            <span>
-                KS Web Developer
-            </span>
+            <h2>
+                My Services
+            </h2>
+
+            <p>
+                Professional solutions for your online presence.
+            </p>
 
         </div>
 
-    </footer>
+
+        <div class="services">
+
+
+            {% for service in data.services %}
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    {{ service.icon }}
+                </div>
+
+                <h3>
+                    {{ service.title }}
+                </h3>
+
+                <p>
+                    {{ service.description }}
+                </p>
+
+            </div>
+
+            {% else %}
+
+            <p>
+                Services will be added soon.
+            </p>
+
+            {% endfor %}
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- TESTIMONIALS -->
+
+<section id="testimonials">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span>
+                CLIENT FEEDBACK
+            </span>
+
+            <h2>
+                Testimonials
+            </h2>
+
+            <p>
+                What clients say about working with me.
+            </p>
+
+        </div>
+
+
+        <div class="testimonials">
+
+
+            {% for testimonial in data.testimonials %}
+
+            <div class="testimonial">
+
+                <p>
+                    "{{ testimonial.message }}"
+                </p>
+
+                <strong>
+                    — {{ testimonial.name }}
+                </strong>
+
+            </div>
+
+            {% else %}
+
+            <div class="testimonial">
+
+                <p>
+                    Client testimonials will appear here.
+                </p>
+
+                <strong>
+                    Your next client
+                </strong>
+
+            </div>
+
+            {% endfor %}
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="container">
+
+
+        <div class="contact">
+
+            <h2>
+                Have a project in mind?
+            </h2>
+
+            <p>
+                Let's create something professional together.
+            </p>
+
+
+            <a
+                class="instagram"
+                href="https://instagram.com/{{ data.contact.instagram }}"
+                target="_blank"
+                rel="noopener"
+            >
+                Instagram — @{{ data.contact.instagram }}
+            </a>
+
+
+            <br><br>
+
+
+            <a
+                class="btn btn-secondary"
+                href="tel:{{ data.contact.phone }}"
+            >
+                Call {{ data.contact.phone }}
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    © 2026 Krishna Soni · KS Web Developer
+
+</footer>
+
 
 </body>
+
 </html>
