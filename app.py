@@ -1,66 +1,63 @@
 import os
+import json
 
-from flask import (
-    Flask,
-    render_template,
-    request,
-    redirect,
-    session,
-    url_for
-)
+from flask import Flask, render_template, request, redirect, session, url_for
 
 app = Flask(__name__)
-
-# --------------------------------------------------
-# SECURITY
-# --------------------------------------------------
 
 app.secret_key = os.environ.get(
     "SECRET_KEY",
     "development-secret-change-this"
 )
 
-ADMIN_USERNAME = os.environ.get(
-    "ADMIN_USERNAME",
-    "admin"
-)
+ADMIN_USERNAME = os.environ.get("ADMIN_USERNAME", "admin")
+ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "change-this-password")
 
-ADMIN_PASSWORD = os.environ.get(
-    "ADMIN_PASSWORD",
-    "change-this-password"
-)
+DATA_FILE = "data.json"
 
 
-# --------------------------------------------------
-# HOME PAGE
-# --------------------------------------------------
+def load_data():
+    try:
+        with open(DATA_FILE, "r", encoding="utf-8") as file:
+            return json.load(file)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {
+            "services": [],
+            "testimonials": [],
+            "contact": {
+                "instagram": "",
+                "phone": ""
+            }
+        }
+
+
+def save_data(data):
+    with open(DATA_FILE, "w", encoding="utf-8") as file:
+        json.dump(data, file, indent=2, ensure_ascii=False)
+
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    data = load_data()
 
+    return render_template(
+        "index.html",
+        data=data
+    )
 
-# --------------------------------------------------
-# ADMIN LOGIN
-# --------------------------------------------------
 
 @app.route("/admin", methods=["GET", "POST"])
 def admin_login():
 
-    # Already logged in
     if session.get("admin_logged_in"):
         return redirect(url_for("admin_dashboard"))
 
-    # Login form submitted
     if request.method == "POST":
 
         username = request.form.get("username", "").strip()
         password = request.form.get("password", "")
 
-        if (
-            username == ADMIN_USERNAME
-            and password == ADMIN_PASSWORD
-        ):
+        if username == ADMIN_USERNAME and password == ADMIN_PASSWORD:
             session.clear()
             session["admin_logged_in"] = True
 
@@ -74,22 +71,19 @@ def admin_login():
     return render_template("login.html")
 
 
-# --------------------------------------------------
-# ADMIN DASHBOARD
-# --------------------------------------------------
-
 @app.route("/admin/dashboard")
 def admin_dashboard():
 
     if not session.get("admin_logged_in"):
         return redirect(url_for("admin_login"))
 
-    return render_template("admin.html")
+    data = load_data()
 
+    return render_template(
+        "admin.html",
+        data=data
+    )
 
-# --------------------------------------------------
-# ADMIN LOGOUT
-# --------------------------------------------------
 
 @app.route("/admin/logout")
 def admin_logout():
@@ -98,10 +92,6 @@ def admin_logout():
 
     return redirect(url_for("admin_login"))
 
-
-# --------------------------------------------------
-# HEALTH CHECK
-# --------------------------------------------------
 
 @app.route("/health")
 def health():
@@ -112,10 +102,6 @@ def health():
     }
 
 
-# --------------------------------------------------
-# ERROR HANDLERS
-# --------------------------------------------------
-
 @app.errorhandler(404)
 def page_not_found(error):
 
@@ -125,15 +111,9 @@ def page_not_found(error):
     """, 404
 
 
-# --------------------------------------------------
-# RUN APP
-# --------------------------------------------------
-
 if __name__ == "__main__":
 
-    port = int(
-        os.environ.get("PORT", 5000)
-    )
+    port = int(os.environ.get("PORT", 5000))
 
     app.run(
         host="0.0.0.0",
