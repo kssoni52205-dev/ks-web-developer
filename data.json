@@ -1,0 +1,29 @@
+{
+  "services": [
+    {
+      "icon": "🌐",
+      "title": "Business Websites",
+      "description": "Professional websites designed to give your business a strong online presence."
+    },
+    {
+      "icon": "⚙️",
+      "title": "Custom Web Applications",
+      "description": "Custom-built web applications designed around your specific requirements."
+    },
+    {
+      "icon": "📱",
+      "title": "Responsive Websites",
+      "description": "Websites that work smoothly across mobile phones, tablets and desktops."
+    },
+    {
+      "icon": "🔧",
+      "title": "Maintenance & Updates",
+      "description": "Ongoing improvements, updates and technical support for your website."
+    }
+  ],
+  "testimonials": [],
+  "contact": {
+    "instagram": "whyalways.krishnaaaa",
+    "phone": "8949144970"
+  }
+}
