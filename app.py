@@ -91,6 +91,75 @@ def admin_logout():
     session.clear()
 
     return redirect(url_for("admin_login"))
+    @app.route("/admin/service/add", methods=["POST"])
+def add_service():
+
+    if not session.get("admin_logged_in"):
+        return redirect(url_for("admin_login"))
+
+    data = load_data()
+
+    service = {
+        "icon": request.form.get("icon", "🌐").strip(),
+        "title": request.form.get("title", "").strip(),
+        "description": request.form.get("description", "").strip()
+    }
+
+    if service["title"]:
+        data["services"].append(service)
+        save_data(data)
+
+    return redirect(url_for("admin_dashboard"))
+
+
+@app.route("/admin/service/delete/<int:index>", methods=["POST"])
+def delete_service(index):
+
+    if not session.get("admin_logged_in"):
+        return redirect(url_for("admin_login"))
+
+    data = load_data()
+
+    if 0 <= index < len(data["services"]):
+        data["services"].pop(index)
+        save_data(data)
+
+    return redirect(url_for("admin_dashboard"))
+
+
+@app.route("/admin/testimonial/add", methods=["POST"])
+def add_testimonial():
+
+    if not session.get("admin_logged_in"):
+        return redirect(url_for("admin_login"))
+
+    data = load_data()
+
+    testimonial = {
+        "name": request.form.get("name", "").strip(),
+        "message": request.form.get("message", "").strip()
+    }
+
+    if testimonial["name"] and testimonial["message"]:
+        data["testimonials"].append(testimonial)
+        save_data(data)
+
+    return redirect(url_for("admin_dashboard"))
+
+
+@app.route("/admin/testimonial/delete/<int:index>", methods=["POST"])
+def delete_testimonial(index):
+
+    if not session.get("admin_logged_in"):
+        return redirect(url_for("admin_login"))
+
+    data = load_data()
+
+    if 0 <= index < len(data["testimonials"]):
+        data["testimonials"].pop(index)
+        save_data(data)
+
+    return redirect(url_for("admin_dashboard"))
 
 
 @app.route("/health")
