@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Krishna Soni | Web Developer</title>
+
+    <meta name="description"
+          content="Krishna Soni - Web Developer. I build modern business websites, custom web applications and responsive websites.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: #f8f6f1;
+            color: #181818;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+
+        /* =========================
+           SOFT BACKGROUND
+        ========================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            top: -180px;
+            left: -180px;
+            background: rgba(210, 178, 112, 0.16);
+            filter: blur(100px);
+            border-radius: 50%;
+            z-index: -2;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            right: -200px;
+            bottom: -200px;
+            background: rgba(125, 94, 55, 0.10);
+            filter: blur(110px);
+            border-radius: 50%;
+            z-index: -2;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+
+            background: rgba(248, 246, 241, 0.78);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .nav-inner {
+            max-width: 1180px;
+            margin: auto;
+            height: 82px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 25px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-mark {
+            width: 45px;
+            height: 45px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 13px;
+
+            background: #181818;
+            color: #d7ad63;
+
+            font-family: "Playfair Display", serif;
+            font-size: 21px;
+            font-weight: 700;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.10);
+        }
+
+        .brand-text strong {
+            display: block;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        .brand-text span {
+            font-size: 9px;
+            letter-spacing: 3px;
+            color: #777;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            color: #555;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #a67b39;
+        }
+
+        .nav-contact {
+            padding: 11px 19px;
+            border-radius: 30px;
+
+            background: #181818;
+            color: white !important;
+
+            font-size: 13px !important;
+        }
+
+        .nav-contact:hover {
+            background: #a67b39;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            max-width: 1180px;
+            margin: auto;
+
+            padding: 150px 25px 80px;
+
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 8px 14px;
+
+            border: 1px solid rgba(166, 123, 57, 0.25);
+            background: rgba(255,255,255,0.55);
+
+            border-radius: 30px;
+
+            font-size: 12px;
+            color: #80602e;
+
+            margin-bottom: 25px;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            background: #8caa62;
+            border-radius: 50%;
+            box-shadow: 0 0 0 5px rgba(140,170,98,0.12);
+        }
+
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(52px, 7vw, 88px);
+            line-height: 0.98;
+
+            font-weight: 600;
+            letter-spacing: -3px;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #a67b39;
+        }
+
+        .hero-description {
+            max-width: 570px;
+
+            color: #666;
+            font-size: 17px;
+            line-height: 1.8;
+
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 22px;
+            border-radius: 12px;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .btn-dark {
+            background: #181818;
+            color: white;
+        }
+
+        .btn-dark:hover {
+            transform: translateY(-3px);
+            background: #a67b39;
+            box-shadow: 0 15px 30px rgba(166,123,57,0.20);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(0,0,0,0.12);
+            background: rgba(255,255,255,0.55);
+        }
+
+        .btn-outline:hover {
+            transform: translateY(-3px);
+            border-color: #a67b39;
+        }
+
+
+        /* =========================
+           HERO BRAND CARD
+        ========================= */
+
+        .hero-card {
+            position: relative;
+
+            min-height: 430px;
+
+            border-radius: 30px;
+
+            background: #181818;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+
+            box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+        }
+
+        .hero-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(215,173,99,0.25);
+
+            box-shadow:
+                0 0 0 50px rgba(215,173,99,0.025),
+                0 0 0 100px rgba(215,173,99,0.02);
+        }
+
+        .ks-logo {
+            position: relative;
+            text-align: center;
+        }
+
+        .ks-symbol {
+            font-family: "Playfair Display", serif;
+
+            font-size: 145px;
+            line-height: 0.8;
+
+            letter-spacing: -25px;
+
+            color: #e4e1da;
+
+            margin-right: 25px;
+        }
+
+        .ks-symbol span {
+            color: #d4a85f;
+        }
+
+        .ks-line {
+            width: 130px;
+            height: 1px;
+
+            margin: 35px auto 20px;
+
+            background: #d4a85f;
+        }
+
+        .ks-logo h2 {
+            color: white;
+
+            font-size: 15px;
+            letter-spacing: 7px;
+
+            font-weight: 500;
+        }
+
+        .ks-logo p {
+            color: #aaa;
+
+            font-size: 9px;
+            letter-spacing: 4px;
+
+            margin-top: 10px;
+        }
+
+
+        /* =========================
+           COMMON SECTION
+        ========================= */
+
+        section {
+            max-width: 1180px;
+            margin: auto;
+            padding: 110px 25px;
+        }
+
+        .section-heading {
+            max-width: 650px;
+            margin-bottom: 50px;
+        }
+
+        .eyebrow {
+            color: #a67b39;
+
+            text-transform: uppercase;
+
+            font-size: 11px;
+            letter-spacing: 4px;
+            font-weight: 700;
+
+            margin-bottom: 13px;
+        }
+
+        .section-heading h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(38px, 5vw, 58px);
+            line-height: 1.05;
+
+            letter-spacing: -1.5px;
+        }
+
+        .section-heading p {
+            color: #707070;
+            line-height: 1.8;
+            margin-top: 18px;
+        }
+
+
+        /* =========================
+           SERVICES
+        ========================= */
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .service-card {
+            min-height: 260px;
+
+            padding: 28px;
+
+            background: rgba(255,255,255,0.65);
+
+            border: 1px solid rgba(0,0,0,0.06);
+
+            border-radius: 22px;
+
+            transition: 0.35s;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 100px;
+            height: 100px;
+
+            right: -50px;
+            bottom: -50px;
+
+            border-radius: 50%;
+
+            background: rgba(215,173,99,0.12);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            background: white;
+
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+        }
+
+        .service-number {
+            color: #b08a4b;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        .service-icon {
+            font-size: 29px;
+            margin: 35px 0 22px;
+        }
+
+        .service-card h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 21px;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: #777;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           WHY ME
+        ========================= */
+
+        .why-section {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .why-text h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(40px, 5vw, 58px);
+            line-height: 1.05;
+        }
+
+        .why-text p {
+            color: #707070;
+            line-height: 1.8;
+            margin-top: 20px;
+        }
+
+        .why-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .why-item {
+            padding: 25px;
+
+            background: rgba(255,255,255,0.6);
+
+            border: 1px solid rgba(0,0,0,0.06);
+
+            border-radius: 18px;
+
+            transition: 0.3s;
+        }
+
+        .why-item:hover {
+            background: white;
+            transform: translateY(-4px);
+        }
+
+        .why-item strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .why-item p {
+            color: #777;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           PROCESS
+        ========================= */
+
+        .process {
+            background: #181818;
+            max-width: 100%;
+            border-radius: 35px;
+            color: white;
+            padding-left: max(25px, calc((100vw - 1130px) / 2));
+            padding-right: max(25px, calc((100vw - 1130px) / 2));
+        }
+
+        .process .section-heading p {
+            color: #999;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+
+            background: rgba(255,255,255,0.10);
+        }
+
+        .process-item {
+            padding: 35px 25px;
+
+            background: #181818;
+        }
+
+        .process-item span {
+            color: #d4a85f;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        .process-item h3 {
+            margin: 35px 0 12px;
+            font-family: "Playfair Display", serif;
+            font-size: 23px;
+        }
+
+        .process-item p {
+            color: #999;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            max-width: 1180px;
+            margin: auto;
+
+            padding: 70px 25px 35px;
+        }
+
+        .footer-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding-bottom: 45px;
+
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .footer-brand h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 35px;
+        }
+
+        .footer-brand p {
+            color: #777;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        .footer-links {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .social-btn {
+            width: 45px;
+            height: 45px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #181818;
+            color: white;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+        }
+
+        .social-btn:hover {
+            background: #a67b39;
+            transform: translateY(-4px);
+        }
+
+        .footer-bottom {
+            padding-top: 25px;
+
+            display: flex;
+            justify-content: space-between;
+
+            color: #999;
+            font-size: 11px;
+        }
+
+
+        /* =========================
+           REVEAL ANIMATION
+        ========================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 130px;
+            }
+
+            .hero-card {
+                min-height: 360px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .why-section {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            .nav-inner {
+                height: 70px;
+            }
+
+            .brand-mark {
+                width: 40px;
+                height: 40px;
+            }
+
+            .hero {
+                padding-top: 115px;
+                padding-bottom: 60px;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+                letter-spacing: -2px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+            .hero-card {
+                min-height: 320px;
+            }
+
+            .ks-symbol {
+                font-size: 100px;
+            }
+
+            section {
+                padding: 80px 20px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-list {
+                grid-template-columns: 1fr;
+            }
+
+            .process {
+                border-radius: 25px;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-top {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav>
+        <div class="nav-inner">
+
+            <a href="#home" class="brand">
+
+                <div class="brand-mark">
+                    KS
+                </div>
+
+                <div class="brand-text">
+                    <strong>KRISHNA</strong>
+                    <span>WEB DEVELOPER</span>
+                </div>
+
+            </a>
+
+
+            <div class="nav-links">
+
+                <a href="#services">Services</a>
+
+                <a href="#why">Why Me</a>
+
+                <a href="#process">Process</a>
+
+                <a
+                    class="nav-contact"
+                    href="https://wa.me/918949144970"
+                    target="_blank"
+                >
+                    Let's Talk
+                </a>
+
+            </div>
+
+        </div>
+    </nav>
+
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <main id="home">
+
+        <section class="hero">
+
+            <div class="hero-content reveal">
+
+                <div class="hero-badge">
+                    <span class="status-dot"></span>
+                    Available for New Projects
+                </div>
+
+
+                <h1>
+                    Hi, I'm
+                    <span>Krishna.</span>
+                    <br>
+                    I build for the web.
+                </h1>
+
+
+                <p class="hero-description">
+
+                    I'm Krishna Soni, a web developer focused on creating
+                    modern, responsive and professional digital experiences
+                    for businesses and individuals.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="https://wa.me/918949144970"
+                        target="_blank"
+                        class="btn btn-dark"
+                    >
+                        Start a Conversation →
+                    </a>
+
+                    <a
+                        href="#services"
+                        class="btn btn-outline"
+                    >
+                        Explore Services
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="hero-card reveal">
+
+                <div class="ks-logo">
+
+                    <div class="ks-symbol">
+                        K<span>S</span>
+                    </div>
+
+                    <div class="ks-line"></div>
+
+                    <h2>WEB DEVELOPER</h2>
+
+                    <p>DESIGN • DEVELOP • DELIVER</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             SERVICES
+        ========================= -->
+
+        <section id="services">
+
+            <div class="section-heading reveal">
+
+                <div class="eyebrow">
+                    What I Do
+                </div>
+
+                <h2>
+                    Digital solutions
+                    built around your needs.
+                </h2>
+
+                <p>
+                    From business websites to custom web applications,
+                    I focus on clean design, responsive experiences
+                    and practical solutions.
+                </p>
+
+            </div>
+
+
+            <div class="services-grid">
+
+
+                <div class="service-card reveal">
+
+                    <div class="service-number">
+                        01
+                    </div>
+
+                    <div class="service-icon">
+                        🌐
+                    </div>
+
+                    <h3>
+                        Business Websites
+                    </h3>
+
+                    <p>
+                        Professional websites designed to give your
+                        business a strong and trustworthy online presence.
+                    </p>
+
+                </div>
+
+
+
+                <div class="service-card reveal">
+
+                    <div class="service-number">
+                        02
+                    </div>
+
+                    <div class="service-icon">
+                        ⚙️
+                    </div>
+
+                    <h3>
+                        Custom Web Applications
+                    </h3>
+
+                    <p>
+                        Custom-built web applications designed around
+                        your specific business requirements.
+                    </p>
+
+                </div>
+
+
+
+                <div class="service-card reveal">
+
+                    <div class="service-number">
+                        03
+                    </div>
+
+                    <div class="service-icon">
+                        📱
+                    </div>
+
+                    <h3>
+                        Responsive Websites
+                    </h3>
+
+                    <p>
+                        Websites that look and work smoothly across
+                        mobile phones, tablets and desktops.
+                    </p>
+
+                </div>
+
+
+
+                <div class="service-card reveal">
+
+                    <div class="service-number">
+                        04
+                    </div>
+
+                    <div class="service-icon">
+                        🔧
+                    </div>
+
+                    <h3>
+                        Maintenance & Updates
+                    </h3>
+
+                    <p>
+                        Ongoing improvements, updates and technical
+                        support to keep your website running smoothly.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             WHY WORK WITH ME
+        ========================= -->
+
+        <section id="why">
+
+            <div class="why-section">
+
+                <div class="why-text reveal">
+
+                    <div class="eyebrow">
+                        Why Work With Me
+                    </div>
+
+                    <h2>
+                        Simple process.
+                        Clean work.
+                        Real results.
+                    </h2>
+
+                    <p>
+                        I believe a good website should not only look
+                        professional, but also be easy to use, fast and
+                        useful for the people visiting it.
+                    </p>
+
+                </div>
+
+
+
+                <div class="why-list">
+
+
+                    <div class="why-item reveal">
+
+                        <strong>
+                            Clean & Modern Design
+                        </strong>
+
+                        <p>
+                            Minimal, professional interfaces that
+                            represent your brand properly.
+                        </p>
+
+                    </div>
+
+
+                    <div class="why-item reveal">
+
+                        <strong>
+                            Mobile Responsive
+                        </strong>
+
+                        <p>
+                            Your website will work smoothly on
+                            phones, tablets and computers.
+                        </p>
+
+                    </div>
+
+
+                    <div class="why-item reveal">
+
+                        <strong>
+                            Custom Solutions
+                        </strong>
+
+                        <p>
+                            No unnecessary templates. Solutions are
+                            created according to your requirements.
+                        </p>
+
+                    </div>
+
+
+                    <div class="why-item reveal">
+
+                        <strong>
+                            Direct Communication
+                        </strong>
+
+                        <p>
+                            Clear communication throughout the
+                            development process.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             PROCESS
+        ========================= -->
+
+        <section id="process" class="process">
+
+            <div class="section-heading reveal">
+
+                <div class="eyebrow">
+                    My Process
+                </div>
+
+                <h2>
+                    From idea to launch.
+                </h2>
+
+                <p>
+                    A simple and transparent process that keeps
+                    everything clear from the beginning.
+                </p>
+
+            </div>
+
+
+
+            <div class="process-grid">
+
+
+                <div class="process-item reveal">
+
+                    <span>
+                        01
+                    </span>
+
+                    <h3>
+                        Discuss
+                    </h3>
+
+                    <p>
+                        We understand your idea, requirements
+                        and goals.
+                    </p>
+
+                </div>
+
+
+
+                <div class="process-item reveal">
+
+                    <span>
+                        02
+                    </span>
+
+                    <h3>
+                        Design
+                    </h3>
+
+                    <p>
+                        The structure and visual direction of
+                        your website are planned.
+                    </p>
+
+                </div>
+
+
+
+                <div class="process-item reveal">
+
+                    <span>
+                        03
+                    </span>
+
+                    <h3>
+                        Develop
+                    </h3>
+
+                    <p>
+                        Your website or web application is
+                        developed and tested.
+                    </p>
+
+                </div>
+
+
+
+                <div class="process-item reveal">
+
+                    <span>
+                        04
+                    </span>
+
+                    <h3>
+                        Launch
+                    </h3>
+
+                    <p>
+                        After final checks, your website is
+                        ready to go live.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="footer-top">
+
+            <div class="footer-brand">
+
+                <h2>
+                    Krishna Soni
+                </h2>
+
+                <p>
+                    Web Developer · Building for the web.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a
+                    href="https://instagram.com/whyalways.krishnaaaa"
+                    target="_blank"
+                    class="social-btn"
+                    aria-label="Instagram"
+                >
+                    IG
+                </a>
+
+
+                <a
+                    href="https://wa.me/918949144970"
+                    target="_blank"
+                    class="social-btn"
+                    aria-label="WhatsApp"
+                >
+                    WA
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Krishna Soni. All rights reserved.
+            </span>
+
+            <span>
+                KS Web Developer
+            </span>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach((entry) => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("show");
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+
+        document
+            .querySelectorAll(".reveal")
+            .forEach((element) => {
+
+                observer.observe(element);
+
+            });
+
+    </script>
+
+
+</body>
+</html>
