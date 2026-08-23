@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | KS Web Developer</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f3ee;
+            color: #181818;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 240px;
+            height: 100vh;
+
+            background: #181818;
+            color: white;
+
+            padding: 30px 20px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #d4a85f;
+            color: #181818;
+
+            border-radius: 14px;
+
+            font-weight: bold;
+            font-size: 19px;
+
+            margin-bottom: 15px;
+        }
+
+        .brand {
+            margin-bottom: 45px;
+        }
+
+        .brand h2 {
+            font-size: 18px;
+        }
+
+        .brand p {
+            color: #999;
+            font-size: 11px;
+            margin-top: 5px;
+        }
+
+        .menu a {
+            display: block;
+
+            padding: 13px 14px;
+            margin-bottom: 8px;
+
+            border-radius: 10px;
+
+            color: #bbb;
+            text-decoration: none;
+
+            font-size: 14px;
+        }
+
+        .menu a:hover,
+        .menu .active {
+            background: #292929;
+            color: white;
+        }
+
+        .logout {
+            position: absolute;
+            bottom: 30px;
+            left: 20px;
+            right: 20px;
+
+            padding: 12px;
+
+            border-radius: 10px;
+
+            text-align: center;
+
+            background: #292929;
+            color: white;
+
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .logout:hover {
+            background: #a67b39;
+        }
+
+        .main {
+            margin-left: 240px;
+            padding: 45px;
+        }
+
+        .top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            margin-bottom: 35px;
+        }
+
+        .top h1 {
+            font-size: 30px;
+        }
+
+        .top p {
+            color: #777;
+            margin-top: 7px;
+            font-size: 14px;
+        }
+
+        .status {
+            padding: 9px 14px;
+
+            background: #eaf4df;
+            color: #52723b;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 18px;
+
+            border: 1px solid #e7e3db;
+        }
+
+        .card span {
+            color: #a67b39;
+            font-size: 12px;
+        }
+
+        .card h2 {
+            margin-top: 12px;
+            font-size: 25px;
+        }
+
+        .card p {
+            color: #777;
+            font-size: 13px;
+            margin-top: 7px;
+        }
+
+        .section {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 20px;
+
+            border: 1px solid #e7e3db;
+
+            margin-bottom: 25px;
+        }
+
+        .section h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .service-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .service {
+            padding: 18px;
+
+            border: 1px solid #e7e3db;
+
+            border-radius: 13px;
+        }
+
+        .service strong {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .service p {
+            color: #777;
+            font-size: 13px;
+        }
+
+        .info {
+            color: #777;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 800px) {
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .logout {
+                position: static;
+                display: block;
+                margin-top: 20px;
+            }
+
+            .main {
+                margin-left: 0;
+                padding: 25px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .service-list {
+                grid-template-columns: 1fr;
+            }
+
+            .top {
+                align-items: flex-start;
+                gap: 15px;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            KS
+        </div>
+
+        <div class="brand">
+            <h2>KS Web Developer</h2>
+            <p>ADMIN PANEL</p>
+        </div>
+
+        <div class="menu">
+
+            <a href="/admin/dashboard" class="active">
+                Dashboard
+            </a>
+
+            <a href="/" target="_blank">
+                View Website
+            </a>
+
+        </div>
+
+        <a href="/admin/logout" class="logout">
+            Logout
+        </a>
+
+    </aside>
+
+
+    <main class="main">
+
+        <div class="top">
+
+            <div>
+                <h1>Dashboard</h1>
+
+                <p>
+                    Welcome to your KS Web Developer admin panel.
+                </p>
+            </div>
+
+            <div class="status">
+                ● System Online
+            </div>
+
+        </div>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <span>WEBSITE</span>
+
+                <h2>Live</h2>
+
+                <p>
+                    Your public website is available.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <span>SERVICES</span>
+
+                <h2>4</h2>
+
+                <p>
+                    Services currently displayed.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <span>STATUS</span>
+
+                <h2>Active</h2>
+
+                <p>
+                    Admin system is running.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="section">
+
+            <h2>
+                Your Services
+            </h2>
+
+            <div class="service-list">
+
+                <div class="service">
+                    <strong>🌐 Business Websites</strong>
+                    <p>Professional business websites.</p>
+                </div>
+
+                <div class="service">
+                    <strong>⚙️ Custom Web Applications</strong>
+                    <p>Custom applications for business needs.</p>
+                </div>
+
+                <div class="service">
+                    <strong>📱 Responsive Websites</strong>
+                    <p>Mobile, tablet and desktop friendly websites.</p>
+                </div>
+
+                <div class="service">
+                    <strong>🔧 Maintenance & Updates</strong>
+                    <p>Website maintenance and technical updates.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="section">
+
+            <h2>
+                Next Steps
+            </h2>
+
+            <p class="info">
+                The dashboard is now ready. In the next stage,
+                we will connect the database so you can manage
+                website content, services, enquiries and other
+                settings directly from this panel.
+            </p>
+
+        </div>
+
+    </main>
+
+</body>
+</html>
