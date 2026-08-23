@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>KS Admin Dashboard</title>
 
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -23,23 +26,32 @@
             position: fixed;
             left: 0;
             top: 0;
+
             width: 235px;
             height: 100vh;
+
             background: #181818;
             color: white;
+
             padding: 25px 18px;
         }
 
         .logo {
             width: 50px;
             height: 50px;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             background: #d4a85f;
             color: #181818;
+
             border-radius: 14px;
+
             font-weight: bold;
+            font-size: 19px;
+
             margin-bottom: 15px;
         }
 
@@ -61,11 +73,15 @@
         .menu a,
         .logout {
             display: block;
+
             padding: 12px 14px;
             margin-bottom: 7px;
+
             border-radius: 10px;
+
             color: #aaa;
             text-decoration: none;
+
             font-size: 13px;
         }
 
@@ -78,23 +94,29 @@
 
         .logout {
             position: absolute;
+
             left: 18px;
             right: 18px;
             bottom: 25px;
+
             background: #292929;
+
             text-align: center;
         }
 
         .main {
             margin-left: 235px;
             padding: 35px;
+
             max-width: 1250px;
         }
 
         .top {
             display: flex;
+
             justify-content: space-between;
             align-items: center;
+
             margin-bottom: 30px;
         }
 
@@ -111,48 +133,66 @@
         .status {
             background: #e9f5df;
             color: #55733c;
+
             padding: 9px 14px;
+
             border-radius: 20px;
+
             font-size: 12px;
         }
 
         .stats {
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
+
             gap: 15px;
+
             margin-bottom: 25px;
         }
 
         .stat {
             background: white;
+
             border: 1px solid #e6e1d8;
+
             border-radius: 18px;
+
             padding: 22px;
         }
 
         .stat span {
             color: #a67b39;
+
             font-size: 11px;
+
             letter-spacing: 1px;
         }
 
         .stat h2 {
             margin-top: 10px;
+
             font-size: 25px;
         }
 
         .panel {
             background: white;
+
             border: 1px solid #e6e1d8;
+
             border-radius: 18px;
+
             padding: 25px;
+
             margin-bottom: 20px;
         }
 
         .panel-head {
             display: flex;
+
             justify-content: space-between;
             align-items: center;
+
             margin-bottom: 20px;
         }
 
@@ -162,10 +202,14 @@
 
         .add-btn {
             border: none;
+
             background: #181818;
             color: white;
+
             padding: 10px 15px;
+
             border-radius: 9px;
+
             cursor: pointer;
         }
 
@@ -173,67 +217,208 @@
             background: #a67b39;
         }
 
+        .form-box {
+            display: none;
+
+            background: #faf9f6;
+
+            border: 1px solid #e5e0d7;
+
+            padding: 20px;
+
+            border-radius: 13px;
+
+            margin-bottom: 18px;
+        }
+
+        .form-box.show {
+            display: block;
+        }
+
+        .form-grid {
+            display: grid;
+
+            grid-template-columns: 90px 1fr;
+
+            gap: 12px;
+        }
+
+        .form-box input,
+        .form-box textarea {
+            width: 100%;
+
+            padding: 12px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 9px;
+
+            font-family: inherit;
+
+            outline: none;
+        }
+
+        .form-box textarea {
+            min-height: 90px;
+
+            resize: vertical;
+        }
+
+        .form-box input:focus,
+        .form-box textarea:focus {
+            border-color: #a67b39;
+        }
+
+        .form-actions {
+            margin-top: 12px;
+
+            display: flex;
+
+            gap: 8px;
+        }
+
+        .save-btn {
+            border: none;
+
+            background: #181818;
+            color: white;
+
+            padding: 10px 17px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+        }
+
+        .cancel-btn {
+            border: none;
+
+            background: #e9e6df;
+
+            padding: 10px 17px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+        }
+
         .service {
             display: flex;
+
             justify-content: space-between;
+
             gap: 15px;
+
             padding: 17px;
+
             border: 1px solid #e7e2da;
+
             border-radius: 12px;
+
             margin-bottom: 10px;
         }
 
         .service strong {
             display: block;
+
             margin-bottom: 5px;
         }
 
         .service p {
             color: #777;
+
             font-size: 13px;
+
+            line-height: 1.6;
         }
 
         .service-actions {
             display: flex;
+
             gap: 7px;
+
             align-items: center;
         }
 
         .small-btn {
             border: none;
+
             padding: 8px 11px;
+
             border-radius: 7px;
+
             cursor: pointer;
+
             background: #eee;
         }
 
         .small-btn.delete {
             color: #b42318;
+
             background: #fff0ee;
         }
 
         .empty {
             color: #888;
+
             font-size: 13px;
+
             padding: 10px 0;
+        }
+
+        .testimonial {
+            padding: 17px;
+
+            border: 1px solid #e7e2da;
+
+            border-radius: 12px;
+
+            margin-bottom: 10px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 15px;
+        }
+
+        .testimonial strong {
+            display: block;
+
+            margin-bottom: 7px;
+        }
+
+        .testimonial p {
+            color: #777;
+
+            font-size: 13px;
+
+            line-height: 1.6;
         }
 
         .contact-grid {
             display: grid;
+
             grid-template-columns: 1fr 1fr;
+
             gap: 15px;
         }
 
         .contact-box {
             padding: 18px;
+
             border: 1px solid #e7e2da;
+
             border-radius: 12px;
         }
 
         .contact-box span {
             display: block;
+
             color: #999;
+
             font-size: 11px;
+
             margin-bottom: 8px;
         }
 
@@ -241,39 +426,24 @@
             font-size: 14px;
         }
 
-        .testimonial {
-            padding: 17px;
-            border: 1px solid #e7e2da;
-            border-radius: 12px;
-            margin-bottom: 10px;
-        }
-
-        .testimonial strong {
-            display: block;
-            margin-bottom: 7px;
-        }
-
-        .testimonial p {
-            color: #777;
-            font-size: 13px;
-            line-height: 1.6;
-        }
-
         @media (max-width: 800px) {
 
             .sidebar {
                 position: relative;
+
                 width: 100%;
                 height: auto;
             }
 
             .logout {
                 position: static;
+
                 margin-top: 20px;
             }
 
             .main {
                 margin-left: 0;
+
                 padding: 20px;
             }
 
@@ -284,149 +454,330 @@
 
             .top {
                 flex-direction: column;
+
                 align-items: flex-start;
+
                 gap: 15px;
             }
 
-            .service {
+            .service,
+            .testimonial {
                 flex-direction: column;
             }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
         }
+
     </style>
+
 </head>
+
 
 <body>
 
+
+<!-- SIDEBAR -->
+
 <aside class="sidebar">
 
-    <div class="logo">KS</div>
+    <div class="logo">
+        KS
+    </div>
 
     <div class="brand">
-        <h2>KS Web Developer</h2>
-        <p>ADMIN PANEL</p>
+
+        <h2>
+            KS Web Developer
+        </h2>
+
+        <p>
+            ADMIN PANEL
+        </p>
+
     </div>
+
 
     <div class="menu">
-        <a href="/admin/dashboard" class="active">Dashboard</a>
 
-        <a href="/" target="_blank">
+        <a
+            href="/admin/dashboard"
+            class="active"
+        >
+            Dashboard
+        </a>
+
+        <a
+            href="/"
+            target="_blank"
+        >
             View Website
         </a>
+
     </div>
 
-    <a href="/admin/logout" class="logout">
+
+    <a
+        href="/admin/logout"
+        class="logout"
+    >
         Logout
     </a>
 
 </aside>
 
 
+
+<!-- MAIN -->
+
 <main class="main">
+
+
+    <!-- TOP -->
 
     <div class="top">
 
         <div>
-            <h1>Dashboard</h1>
+
+            <h1>
+                Dashboard
+            </h1>
 
             <p>
                 Manage your website from one place.
             </p>
+
         </div>
 
+
         <div class="status">
+
             ● System Online
+
         </div>
 
     </div>
 
+
+
+    <!-- STATS -->
 
     <div class="stats">
 
-        <div class="stat">
-            <span>SERVICES</span>
-            <h2>{{ data.services|length }}</h2>
-        </div>
 
         <div class="stat">
-            <span>TESTIMONIALS</span>
-            <h2>{{ data.testimonials|length }}</h2>
+
+            <span>
+                SERVICES
+            </span>
+
+            <h2>
+                {{ data.services|length }}
+            </h2>
+
         </div>
 
+
         <div class="stat">
-            <span>WEBSITE</span>
-            <h2>Live</h2>
+
+            <span>
+                TESTIMONIALS
+            </span>
+
+            <h2>
+                {{ data.testimonials|length }}
+            </h2>
+
         </div>
+
+
+        <div class="stat">
+
+            <span>
+                WEBSITE
+            </span>
+
+            <h2>
+                Live
+            </h2>
+
+        </div>
+
 
     </div>
+
 
 
     <!-- SERVICES -->
 
     <div class="panel">
 
+
         <div class="panel-head">
 
-            <h2>Services</h2>
+            <h2>
+                Services
+            </h2>
 
-            <button class="add-btn" onclick="alert('Service management next step mein activate hoga.')">
+
+            <button
+                class="add-btn"
+                onclick="toggleForm('serviceForm')"
+            >
                 + Add Service
             </button>
 
         </div>
 
 
+
+        <!-- ADD SERVICE FORM -->
+
+        <div
+            id="serviceForm"
+            class="form-box"
+        >
+
+            <form
+                method="POST"
+                action="/admin/service/add"
+            >
+
+                <div class="form-grid">
+
+                    <input
+                        type="text"
+                        name="icon"
+                        placeholder="Icon e.g. 🌐"
+                        required
+                    >
+
+                    <input
+                        type="text"
+                        name="title"
+                        placeholder="Service title"
+                        required
+                    >
+
+                    <div></div>
+
+                    <textarea
+                        name="description"
+                        placeholder="Service description"
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="submit"
+                        class="save-btn"
+                    >
+                        Save Service
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="cancel-btn"
+                        onclick="toggleForm('serviceForm')"
+                    >
+                        Cancel
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+
+        <!-- SERVICES LIST -->
+
         {% for service in data.services %}
 
         <div class="service">
 
+
             <div>
 
                 <strong>
+
                     {{ service.icon }}
+
                     {{ service.title }}
+
                 </strong>
 
+
                 <p>
+
                     {{ service.description }}
+
                 </p>
 
             </div>
 
+
             <div class="service-actions">
 
-                <button
-                    class="small-btn"
-                    onclick="alert('Edit feature next step mein activate hoga.')"
+
+                <form
+                    method="POST"
+                    action="/admin/service/delete/{{ loop.index0 }}"
+                    onsubmit="return confirm('Delete this service?')"
                 >
-                    Edit
-                </button>
+
+                    <button
+                        type="submit"
+                        class="small-btn delete"
+                    >
+                        Delete
+                    </button>
+
+                </form>
+
 
             </div>
+
 
         </div>
 
         {% else %}
 
         <p class="empty">
+
             No services found.
+
         </p>
 
         {% endfor %}
 
+
     </div>
+
 
 
     <!-- TESTIMONIALS -->
 
     <div class="panel">
 
+
         <div class="panel-head">
 
-            <h2>Client Testimonials</h2>
+            <h2>
+                Client Testimonials
+            </h2>
+
 
             <button
                 class="add-btn"
-                onclick="alert('Testimonial management next step mein activate hoga.')"
+                onclick="toggleForm('testimonialForm')"
             >
                 + Add Testimonial
             </button>
@@ -434,44 +785,147 @@
         </div>
 
 
+
+        <!-- TESTIMONIAL FORM -->
+
+        <div
+            id="testimonialForm"
+            class="form-box"
+        >
+
+            <form
+                method="POST"
+                action="/admin/testimonial/add"
+            >
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Client name"
+                    required
+                >
+
+
+                <br><br>
+
+
+                <textarea
+                    name="message"
+                    placeholder="Client testimonial"
+                    required
+                ></textarea>
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="submit"
+                        class="save-btn"
+                    >
+                        Save Testimonial
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="cancel-btn"
+                        onclick="toggleForm('testimonialForm')"
+                    >
+                        Cancel
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+
+        <!-- TESTIMONIAL LIST -->
+
         {% for testimonial in data.testimonials %}
 
         <div class="testimonial">
 
-            <strong>
-                {{ testimonial.name }}
-            </strong>
 
-            <p>
-                "{{ testimonial.message }}"
-            </p>
+            <div>
+
+                <strong>
+
+                    {{ testimonial.name }}
+
+                </strong>
+
+
+                <p>
+
+                    "{{ testimonial.message }}"
+
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <form
+                    method="POST"
+                    action="/admin/testimonial/delete/{{ loop.index0 }}"
+                    onsubmit="return confirm('Delete this testimonial?')"
+                >
+
+                    <button
+                        type="submit"
+                        class="small-btn delete"
+                    >
+                        Delete
+                    </button>
+
+                </form>
+
+            </div>
+
 
         </div>
 
         {% else %}
 
         <p class="empty">
+
             No testimonials added yet.
+
         </p>
 
         {% endfor %}
 
+
     </div>
+
 
 
     <!-- CONTACT -->
 
     <div class="panel">
 
+
         <div class="panel-head">
-            <h2>Contact Details</h2>
+
+            <h2>
+                Contact Details
+            </h2>
+
         </div>
+
 
         <div class="contact-grid">
 
+
             <div class="contact-box">
 
-                <span>INSTAGRAM</span>
+                <span>
+                    INSTAGRAM
+                </span>
 
                 <strong>
                     @{{ data.contact.instagram }}
@@ -482,7 +936,9 @@
 
             <div class="contact-box">
 
-                <span>PHONE</span>
+                <span>
+                    PHONE
+                </span>
 
                 <strong>
                     {{ data.contact.phone }}
@@ -490,11 +946,29 @@
 
             </div>
 
+
         </div>
 
     </div>
 
+
 </main>
 
+
+
+<script>
+
+function toggleForm(id) {
+
+    const form = document.getElementById(id);
+
+    form.classList.toggle("show");
+
+}
+
+</script>
+
+
 </body>
+
 </html>
